@@ -5,6 +5,22 @@ Este case de ETL pode ser usando em qualquer Cloud Pública.
 > O código em PySpark que realiza o Job de ETL pode ser usado no Azure Databricks, GCP/DataProc, etc...
 > Como não tenho uma conta de Teste na Azure para uso pessoal, fiz os testes num cluster Spark que tenho instalado localmente no meu Notebook.
 
+## Instalando o Spark no Ubuntu 22.04
+
+```
+sudo apt update
+sudo apt install default-jdk
+wget https://dlcdn.apache.org/spark/spark-3.4.0/spark-3.4.0-bin-hadoop3.tgz
+tar xvf spark-3.4.0-bin-hadoop3.tgz
+sudo mv spark-3.4.0-bin-hadoop3 /opt/spark
+vim ~/.bashrc
+# Adicione as linhas abaixo no final do arquivo .bashrc
+export SPARK_HOME=/opt/spark
+export PATH=$PATH:$SPARK_HOME/bin
+
+source ~/.bashrc
+```
+
 ## Instalando python, pip e git
 
 ```
@@ -23,21 +39,6 @@ sudo apt install git
  source etl_case_venv/bin/activate
 ```
 
-## Instalando o Spark no Ubuntu 22.04
-
-```
-sudo apt update
-sudo apt install default-jdk
-wget https://dlcdn.apache.org/spark/spark-3.4.0/spark-3.4.0-bin-hadoop3.tgz
-tar xvf spark-3.4.0-bin-hadoop3.tgz
-sudo mv spark-3.4.0-bin-hadoop3 /opt/spark
-vim ~/.bashrc
-# Adicione as linhas abaixo no final do arquivo .bashrc
-export SPARK_HOME=/opt/spark
-export PATH=$PATH:$SPARK_HOME/bin
-
-source ~/.bashrc
-```
 ## Clonando o repositório
 
 ````
